@@ -1,9 +1,8 @@
 //your JS code here. If required.
 function createPromise(id) {
   const timeTaken = Math.random() * 2 + 1;
-  return new Promise((resolve) => {
-    setTimeout(() => resolve({ id, timeTaken: timeTaken.toFixed(3) }), timeTaken * 1000);
-  });
+  return new Promise((resolve) => 
+  setTimeout(() => resolve({ id, timeTaken: timeTaken.toFixed(3) }), timeTaken * 1000); });
 }
 
 const output = document.getElementById("output");
@@ -23,8 +22,7 @@ Promise.all(promises).then((results) => {
     const row = document.createElement("tr");
     row.innerHTML = `
       <td>Promise ${result.id}</td>
-      <td>${result.timeTaken} s</td>
-    `;
+      <td>${result.timeTaken} s</td>`;
     output.appendChild(row);
   });
 
@@ -34,7 +32,6 @@ Promise.all(promises).then((results) => {
   const totalRow = document.createElement("tr");
   totalRow.innerHTML = `
     <td>Total</td>
-    <td>${totalTimeTaken} s</td>
-  `;
+    <td>${totalTimeTaken} s</td> `;
   output.appendChild(totalRow);
 });
