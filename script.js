@@ -1,4 +1,3 @@
-//your JS code here. If required.
 const output = document.getElementById("output");
 
 function createPromise(name) {
@@ -16,7 +15,7 @@ const promises = [
   createPromise("Promise 3"),
 ];
 
-output.innerHTML = `<tr><td colspan="2">Loading...</td></tr>`;
+output.innerHTML = `<tr id="loading"><td colspan="2">Loading...</td></tr>`;
 
 const startTime = Date.now();
 
@@ -25,9 +24,9 @@ Promise.all(promises)
     const totalTime = (Date.now() - startTime) / 1000;
 
     output.innerHTML = "";
-    results.forEach((result) => {
+    results.forEach((result, index) => {
       const row = document.createElement("tr");
-      row.innerHTML = `<td>${result.name}</td><td>${result.time}</td>`;
+      row.innerHTML = `<td>Promise ${index + 1}</td><td>${result.time}</td>`;
       output.appendChild(row);
     });
 
@@ -38,6 +37,3 @@ Promise.all(promises)
   .catch((error) => {
     console.error(error);
   });
-
-
-  
